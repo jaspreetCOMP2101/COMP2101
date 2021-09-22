@@ -19,6 +19,9 @@ echo "Setuid files:"
 echo "============="
 find / -type f -executable -perm -4000 -ls 2>/dev/null | sort -k 5
 echo ""
+echo "12 large files:"
+echo "============"
+find / -type f -exec ls -lh {} + -ls 2>/dev/null|sort -hr -k5 | head -n 12| awk '{print $5, $3, $NF;}'
 
 # for the task, add
 # commands to display a title
